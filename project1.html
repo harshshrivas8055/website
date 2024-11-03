@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+         *{
+            margin: 0%;
+            padding: 0%;
+            box-sizing: border-box;
+          }
+          body{
+            align-items: center;
+            justify-content: space-between;
+          }
+          h1{
+            align-items: center;
+            background-color: aqua;
+            position: sticky;
+            color: aliceblue;
+            text-align: center;
+            margin-bottom: 20px;
+            margin-top: 30px;
+          }
+          div{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          span{
+            border: 10px solid #212121;
+            width: 20%;
+            height: 40%;
+            padding: 100px;
+            margin: 10px;
+            align-items: center;
+          }
+
+          #black{
+            background-color: black;
+          }
+          #blue{
+            background-color: blue;
+          }
+          #green{
+            background-color: green;
+          }
+          #yellow{
+            background-color: yellow;
+          }
+          #white{
+            background-color: white;
+          }
+
+        </style>
+    </head>
+
+    <body>
+        <h1>Project1 practice</h1><br>
+        <div>
+            <span class="button" id="black"></span>
+            <span class="button" id="blue"></span>
+            <span class="button" id="green"></span>
+            <span class="button" id="yellow"></span>
+            <span class="button" id="white"></span>
+        </div>
+       
+       
+       <script>
+        const buttons = document.querySelectorAll('.button');
+        console.log(buttons);
+        const body = document.querySelector('body');
+        
+        buttons.forEach(function(button) {
+            console.log(button);
+            button.addEventListener('click', function(event){
+                console.log(event);
+                console.log(event.target);
+                if (event.target.id === 'black'){
+                    body.style.backgroundColor = event.target.id;
+                }
+                if (event.target.id === 'blue'){
+                    body.style.backgroundColor = event.target.id;
+                }
+                if (event.target.id === 'green'){
+                    body.style.backgroundColor = event.target.id;
+                }
+                if (event.target.id === 'yellow'){
+                    body.style.backgroundColor = event.target.id;
+                }
+                if (event.target.id === 'white'){
+                    body.style.backgroundColor = event.target.id;
+                }
+            });
+        });
+        </script>
+    </body>
+    
+</html>

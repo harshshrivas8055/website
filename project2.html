@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+            background: #787878;
+        }
+        .container{
+            align-content: center;
+            justify-content: center;
+        }
+        h1{
+        text-align: center;
+        align-items: center;
+        color: bisque;
+        margin: 20px;
+        }
+        form{
+            text-align: center;
+            align-items: center;
+            margin: 20px;
+            color: beige;
+        }
+        input{
+            background-color: aliceblue;
+            border-radius: 2px;
+            box-shadow: inset;
+        }
+        p, button{
+            margin: 20px; 
+        }
+        button{
+            width: 100px;
+            height: 50px;
+            background-color: antiquewhite;
+            color: #212121;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: large;
+            font-weight: 1000;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: bisque;
+            color: black;
+        }
+
+    </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>BMI calculator</h1>
+            <form action method="get">
+                <p><label>Height in cm: </label><input type="text"
+                        id="Height" /></p>
+                <p><label>Weight in kg: </label><input type="text"
+                        id="Weight" /></p>
+                <button>calculate</button>
+                <div id="results"></div>
+                <div class="weight-guide">
+                    <h3>BMI weight guide</h3>
+                    <p id="a">under weight = less than 18.6</p>
+                    <p id="b">normal range = between 18.6 and 24.9</p>
+                    <p id="c">over weight = greater than 24.9</p>
+                </div>
+            </form>
+        </div>
+
+        <script>
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const Weight = parseInt(document.querySelector('#Weight').value);
+            const Height = parseInt(document.querySelector('#Height').value);
+            const results = document.querySelector('#results');
+
+            if(Height === '' || Height < 0 || isNaN(Height)) {
+                results.innerHTML = `please give a valid height: ${Height}`
+            }else if(Weight === '' || Weight < 0 || isNaN(Weight)) {
+                results.innerHTML = `please give a valid weight: ${Weight}`
+            }else {
+                const bmi = (Weight / ((Height * Height) / 10000)).toFixed(2);
+                //show the result
+                results.innerHTML = `<span>${bmi}</span>`;
+                
+                // Reset the color of the BMI guide paragraphs
+                document.querySelectorAll('.weight-guide p').forEach(p => p.style.color = '');
+
+                // Highlight the appropriate BMI category
+                 if (bmi < 18.6) {
+                 document.getElementById('a').style.color = 'red';
+                } else if (bmi >= 18.6 && bmi <= 24.9) {
+                  document.getElementById('b').style.color = 'red';
+                } else {
+                document.getElementById('c').style.color = 'red';
+                }
+            }
+
+           
+        });
+    </script>
+    </body>
+</html>
