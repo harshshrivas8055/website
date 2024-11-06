@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Settimeout</h1>
+    <button id="stop">stop</button>
+
+    <script>
+        const h = function(e){
+            document.querySelector('h1').innerHTML = 'hi';
+            console.log('changed');
+        }
+
+        const timeout = setTimeout(h, 5000);
+
+        document.querySelector('#stop').addEventListener('click', function(e) {
+            clearTimeout(timeout);
+            console.log('stoped');
+        })
+        
+        
+    </script>
+</body>
+</html>

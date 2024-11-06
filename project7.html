@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>change color by click start and stop by clicking the stop </h1>
+     <button id="start">start</button>
+     <button id="stop">stop</button>
+</body>
+<script>
+    // generate a random color
+
+    const randomColor = function(){
+        const hex = 'A16B27C38D49F5E0';  // hex color is from 0123456789ABCDEF 16digit
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += hex[Math.floor(Math.random() *16)]; // for taking the place value of hex
+        }    
+        return color;
+    };
+
+    let intervalid;
+    const startchangingcolor = function(){
+        if(!intervalid){
+            intervalid = setInterval(changebgcolor, 1000);
+        }
+
+        function changebgcolor(){
+            document.body.style.backgroundColor = randomColor();
+        }
+    };
+
+    const stopchangingcolor = function(){
+        clearInterval(intervalid);
+        intervalid = null;
+    };
+
+    document.querySelector('#start').addEventListener('click', startchangingcolor);
+    document.querySelector('#stop').addEventListener('click', stopchangingcolor);
+    
+
+</script>
+</html>

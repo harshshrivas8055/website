@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .color {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+td {
+    border-bottom: 1px solid #ddd;
+}
+
+    </style>
+</head>
+<body>
+    <div class="project">
+        <div id="insert">
+            <div class="key">
+                Press the key and watch magic
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    const insert = document.getElementById("insert");
+
+    window.addEventListener('keydown', (e) => {
+
+        insert.innerHTML = `
+        <div class="color" >
+            <table>
+                <tr>
+                    <th>key</th>
+                    <th>keycode</th>
+                    <th>Code</th>
+                </tr>
+                <tr>
+                    <td>${e.key === ' ' ? 'Space' : e.key}</td>
+                    <td>${e.keyCode}</td>
+                    <td>${e.code}</td>
+                </tr>
+                </table>
+            </div>
+
+        `;
+
+
+    }
+    );
+</script>
+
+</html>
